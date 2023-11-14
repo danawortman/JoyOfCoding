@@ -18,8 +18,21 @@ public class Player : MonoBehaviour
     {
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
-        Debug.Log(horizontalInput + " " + verticalInput);
+        //Debug.Log(horizontalInput + " " + verticalInput);
         transform.Translate(new Vector3(horizontalInput * Time.deltaTime * speed, 0,
                                         verticalInput * Time.deltaTime * speed));
+
+        float mouseXvalue = Input.GetAxis("Mouse X");
+        float mouseYvalue = Input.GetAxis("Mouse Y");
+        //Debug.Log(mouseXvalue + " " + mouseYvalue);
+        transform.Rotate(0, mouseXvalue, 0);
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Bullet")
+        {
+            Destroy(gameObject);
+        }
     }
 }

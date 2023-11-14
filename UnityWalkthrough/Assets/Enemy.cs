@@ -9,10 +9,12 @@ public class Enemy : MonoBehaviour
     // Angular speed in radians per sec.
     public float speed = 1.0f;
 
+
     // Start is called before the first frame update
     void Start()
     {
         player = FindObjectOfType<Player>().gameObject;
+
     }
 
     // Update is called once per frame
@@ -29,5 +31,18 @@ public class Enemy : MonoBehaviour
 
         // Calculate a rotation a step closer to the target and applies rotation to this object
         transform.rotation = Quaternion.LookRotation(newDirection);
+
+        // Move the enemy toward the player
+        if (r)
+        transform.Translate(-transform.forward * Time.deltaTime * speed);
+        Debug.Log(transform.forward);
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Bullet")
+        {
+            Destroy(gameObject);
+        }
     }
 }
