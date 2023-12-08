@@ -7,7 +7,7 @@ public class Enemy : MonoBehaviour
     GameObject player;
 
     // Angular speed in radians per sec.
-    public float speed = 1.0f;
+    public float speed = 0.5f;
 
 
     // Start is called before the first frame update
@@ -21,28 +21,42 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         // Compute the direction to face the player
-        Vector3 targetVec = player.transform.position - transform.position;
+        Vector3 targetVec = (transform.position - player.transform.position).normalized;
 
         // The step size is equal to speed times frame time.
         float singleStep = speed * Time.deltaTime;
 
-        // Rotate the forward vector towards the target direction by one step
-        Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetVec, singleStep, 0.0f);
+        // Calculate a rotation that aims us toward the opponent
+        Quaternion rotation = Quaternion.LookRotation(-targetVec);
 
-        // Calculate a rotation a step closer to the target and applies rotation to this object
-        transform.rotation = Quaternion.LookRotation(newDirection);
+        // Rotate toward the target
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, 50 * singleStep);
 
-        // Move the enemy toward the player
-        if (r)
-        transform.Translate(-transform.forward * Time.deltaTime * speed);
-        Debug.Log(transform.forward);
+        // Calculate the distance to the opponent
+        float distance = Vector3.Distance(transform.position, player.transform.position);
+
+        // Move the enemy away from the player if he's too close
+        if (distance < 6)
+        {
+            transform.Translate(-transform.forward * Time.deltaTime * speed, Space.World);
+        }
+        // Move the enemy toward the player if he's too far
+        else if (distance > 7)
+        {
+            transform.Translate(transform.forward * Time.deltaTime * speed, Space.World);
+        }
+        // Move right to "circle" the player if he's at a good distance
+        else
+        {
+            transform.Translate(transform.right * Time.deltaTime * speed, Space.World);
+        }
     }
 
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Bullet")
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
     }
 }

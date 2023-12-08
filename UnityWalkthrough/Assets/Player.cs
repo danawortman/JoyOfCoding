@@ -10,7 +10,6 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -22,17 +21,17 @@ public class Player : MonoBehaviour
         transform.Translate(new Vector3(horizontalInput * Time.deltaTime * speed, 0,
                                         verticalInput * Time.deltaTime * speed));
 
-        float mouseXvalue = Input.GetAxis("Mouse X");
-        float mouseYvalue = Input.GetAxis("Mouse Y");
-        //Debug.Log(mouseXvalue + " " + mouseYvalue);
-        transform.Rotate(0, mouseXvalue, 0);
+        Vector3 mousePos = Input.mousePosition;
+        Vector3 mouseWorldPoint = Camera.main.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, Camera.main.nearClipPlane));
+        Debug.Log(mouseWorldPoint);
+
     }
 
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Bullet")
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
     }
 }
