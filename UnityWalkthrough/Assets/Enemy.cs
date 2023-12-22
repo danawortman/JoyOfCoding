@@ -21,7 +21,7 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         // Compute the direction to face the player
-        Vector3 targetVec = (transform.position - player.transform.position).normalized;
+ /*       Vector3 targetVec = (transform.position - player.transform.position).normalized;
 
         // The step size is equal to speed times frame time.
         float singleStep = speed * Time.deltaTime;
@@ -50,13 +50,15 @@ public class Enemy : MonoBehaviour
         {
             transform.Translate(transform.right * Time.deltaTime * speed, Space.World);
         }
+ */
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Bullet")
         {
             //Destroy(gameObject);
+            FindObjectOfType<Score>().playerScore++;
         }
     }
 }
