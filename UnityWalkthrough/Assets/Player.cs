@@ -22,7 +22,7 @@ public class Player : MonoBehaviour
                                         verticalInput * Time.deltaTime * speed));
 
         Vector3 mousePos = Input.mousePosition;
-        Debug.Log(mousePos);
+        //Debug.Log(mousePos);
         Vector3 mouseWorldPoint = Camera.main.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, Camera.main.nearClipPlane));
         //Debug.Log(mouseWorldPoint);
 

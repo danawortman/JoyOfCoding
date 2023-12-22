@@ -53,12 +53,14 @@ public class Enemy : MonoBehaviour
  */
     }
 
-    void OnTriggerEnter(Collision collision)
+    void OnCollisionEnter(Collision collision)
     {
+        Debug.Log("Collision");
         if (collision.gameObject.tag == "Bullet")
         {
             //Destroy(gameObject);
             FindObjectOfType<Score>().playerScore++;
+            Destroy(collision.gameObject);
         }
     }
 }
