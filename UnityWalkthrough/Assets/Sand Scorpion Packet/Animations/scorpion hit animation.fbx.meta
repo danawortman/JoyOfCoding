@@ -1,0 +1,793 @@
+fileFormatVersion: 2
+guid: 7ba4d8ed0baabf2498c9e6d2b1067f91
+timeCreated: 1486449973
+licenseType: Store
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Head
+    100002: Head 1
+    100004: 'Left Claw '
+    100006: Left Claw .001
+    100008: Left Claw .001_end
+    100010: Left Claw _end
+    100012: Left Claw Arm
+    100014: Left Claw Arm.001
+    100016: Left Claw Arm.002
+    100018: Left Claw Arm.006
+    100020: Left Claw Arm.007
+    100022: Left Leg1
+    100024: Left Leg1.001
+    100026: Left Leg1.001 1
+    100028: Left Leg1.002
+    100030: Left Leg1.002 1
+    100032: Left Leg1.003
+    100034: Left Leg1.003_end
+    100036: Left Leg1.005
+    100038: Left Leg1.006
+    100040: Left Leg2
+    100042: Left Leg2.001
+    100044: Left Leg2.002
+    100046: Left Leg2.003
+    100048: Left Leg2.003 1
+    100050: Left Leg2.003_end
+    100052: Left Leg2.004
+    100054: Left Leg2.005
+    100056: Left Leg2.006
+    100058: Left Leg3
+    100060: Left Leg3.001
+    100062: Left Leg3.001 1
+    100064: Left Leg3.002
+    100066: Left Leg3.002 1
+    100068: Left Leg3.003
+    100070: Left Leg3.003_end
+    100072: Left Leg3.005
+    100074: Left Leg3.006
+    100076: Left Leg4
+    100078: Left Leg4.001
+    100080: Left Leg4.002
+    100082: Left Leg4.002 1
+    100084: Left Leg4.003
+    100086: Left Leg4.003 1
+    100088: Left Leg4.003_end
+    100090: Left Leg4.004
+    100092: Left Leg4.005
+    100094: 'Right Claw '
+    100096: Right Claw .001
+    100098: Right Claw .001_end
+    100100: Right Claw _end
+    100102: Right Claw Arm
+    100104: Right Claw Arm 1
+    100106: Right Claw Arm.001
+    100108: Right Claw Arm.002
+    100110: Right Claw Arm.007
+    100112: Right Leg1
+    100114: Right Leg1 1
+    100116: Right Leg1.001
+    100118: Right Leg1.002
+    100120: Right Leg1.002 1
+    100122: Right Leg1.003
+    100124: Right Leg1.003 1
+    100126: Right Leg1.003_end
+    100128: Right Leg1.006
+    100130: Right Leg2
+    100132: Right Leg2 1
+    100134: Right Leg2.001
+    100136: Right Leg2.002
+    100138: Right Leg2.003
+    100140: Right Leg2.003_end
+    100142: Right Leg2.004
+    100144: Right Leg2.005
+    100146: Right Leg2.006
+    100148: Right Leg3
+    100150: Right Leg3 1
+    100152: Right Leg3.001
+    100154: Right Leg3.002
+    100156: Right Leg3.002 1
+    100158: Right Leg3.003
+    100160: Right Leg3.003 1
+    100162: Right Leg3.003_end
+    100164: Right Leg3.006
+    100166: Right Leg4
+    100168: Right Leg4.001
+    100170: Right Leg4.002
+    100172: Right Leg4.003
+    100174: Right Leg4.003 1
+    100176: Right Leg4.003_end
+    100178: Right Leg4.004
+    100180: Right Leg4.005
+    100182: Right Leg4.006
+    100184: Scorpion animations
+    100186: Scorpion Armature
+    100188: //RootNode
+    100190: Sting
+    100192: Sting_end
+    100194: Tail
+    100196: Tail 1
+    100198: Tail.001
+    100200: Tail.001 1
+    100202: Tail.002
+    100204: Tail.003
+    100206: Tail.004
+    100208: Tail.008
+    100210: Tail.009
+    100212: Tail.010
+    100214: Tail.011
+    100216: Vertebra
+    100218: Vertebra 1
+    100220: Vertebra.002
+    100222: Vertebra.002 1
+    100224: Vertebra.003
+    100226: Vertebra.003 1
+    100228: Vertebra.004
+    100230: Vertebra.004 1
+    100232: Vertebra.005
+    100234: Vertebra.005 1
+    100236: Vertebra.006
+    100238: Vertebra.006 1
+    400000: Head
+    400002: Head 1
+    400004: 'Left Claw '
+    400006: Left Claw .001
+    400008: Left Claw .001_end
+    400010: Left Claw _end
+    400012: Left Claw Arm
+    400014: Left Claw Arm.001
+    400016: Left Claw Arm.002
+    400018: Left Claw Arm.006
+    400020: Left Claw Arm.007
+    400022: Left Leg1
+    400024: Left Leg1.001
+    400026: Left Leg1.001 1
+    400028: Left Leg1.002
+    400030: Left Leg1.002 1
+    400032: Left Leg1.003
+    400034: Left Leg1.003_end
+    400036: Left Leg1.005
+    400038: Left Leg1.006
+    400040: Left Leg2
+    400042: Left Leg2.001
+    400044: Left Leg2.002
+    400046: Left Leg2.003
+    400048: Left Leg2.003 1
+    400050: Left Leg2.003_end
+    400052: Left Leg2.004
+    400054: Left Leg2.005
+    400056: Left Leg2.006
+    400058: Left Leg3
+    400060: Left Leg3.001
+    400062: Left Leg3.001 1
+    400064: Left Leg3.002
+    400066: Left Leg3.002 1
+    400068: Left Leg3.003
+    400070: Left Leg3.003_end
+    400072: Left Leg3.005
+    400074: Left Leg3.006
+    400076: Left Leg4
+    400078: Left Leg4.001
+    400080: Left Leg4.002
+    400082: Left Leg4.002 1
+    400084: Left Leg4.003
+    400086: Left Leg4.003 1
+    400088: Left Leg4.003_end
+    400090: Left Leg4.004
+    400092: Left Leg4.005
+    400094: 'Right Claw '
+    400096: Right Claw .001
+    400098: Right Claw .001_end
+    400100: Right Claw _end
+    400102: Right Claw Arm
+    400104: Right Claw Arm 1
+    400106: Right Claw Arm.001
+    400108: Right Claw Arm.002
+    400110: Right Claw Arm.007
+    400112: Right Leg1
+    400114: Right Leg1 1
+    400116: Right Leg1.001
+    400118: Right Leg1.002
+    400120: Right Leg1.002 1
+    400122: Right Leg1.003
+    400124: Right Leg1.003 1
+    400126: Right Leg1.003_end
+    400128: Right Leg1.006
+    400130: Right Leg2
+    400132: Right Leg2 1
+    400134: Right Leg2.001
+    400136: Right Leg2.002
+    400138: Right Leg2.003
+    400140: Right Leg2.003_end
+    400142: Right Leg2.004
+    400144: Right Leg2.005
+    400146: Right Leg2.006
+    400148: Right Leg3
+    400150: Right Leg3 1
+    400152: Right Leg3.001
+    400154: Right Leg3.002
+    400156: Right Leg3.002 1
+    400158: Right Leg3.003
+    400160: Right Leg3.003 1
+    400162: Right Leg3.003_end
+    400164: Right Leg3.006
+    400166: Right Leg4
+    400168: Right Leg4.001
+    400170: Right Leg4.002
+    400172: Right Leg4.003
+    400174: Right Leg4.003 1
+    400176: Right Leg4.003_end
+    400178: Right Leg4.004
+    400180: Right Leg4.005
+    400182: Right Leg4.006
+    400184: Scorpion animations
+    400186: Scorpion Armature
+    400188: //RootNode
+    400190: Sting
+    400192: Sting_end
+    400194: Tail
+    400196: Tail 1
+    400198: Tail.001
+    400200: Tail.001 1
+    400202: Tail.002
+    400204: Tail.003
+    400206: Tail.004
+    400208: Tail.008
+    400210: Tail.009
+    400212: Tail.010
+    400214: Tail.011
+    400216: Vertebra
+    400218: Vertebra 1
+    400220: Vertebra.002
+    400222: Vertebra.002 1
+    400224: Vertebra.003
+    400226: Vertebra.003 1
+    400228: Vertebra.004
+    400230: Vertebra.004 1
+    400232: Vertebra.005
+    400234: Vertebra.005 1
+    400236: Vertebra.006
+    400238: Vertebra.006 1
+    2300000: Head 1
+    2300002: Left Claw Arm.007
+    2300004: Left Leg1.001 1
+    2300006: Left Leg1.002 1
+    2300008: Left Leg1.005
+    2300010: Left Leg1.006
+    2300012: Left Leg2.003 1
+    2300014: Left Leg2.004
+    2300016: Left Leg2.005
+    2300018: Left Leg2.006
+    2300020: Left Leg3.001 1
+    2300022: Left Leg3.002 1
+    2300024: Left Leg3.005
+    2300026: Left Leg3.006
+    2300028: Left Leg4.002 1
+    2300030: Left Leg4.003 1
+    2300032: Left Leg4.004
+    2300034: Left Leg4.005
+    2300036: Right Claw Arm 1
+    2300038: Right Leg1 1
+    2300040: Right Leg1.002 1
+    2300042: Right Leg1.003 1
+    2300044: Right Leg1.006
+    2300046: Right Leg2 1
+    2300048: Right Leg2.004
+    2300050: Right Leg2.005
+    2300052: Right Leg2.006
+    2300054: Right Leg3 1
+    2300056: Right Leg3.002 1
+    2300058: Right Leg3.003
+    2300060: Right Leg3.006
+    2300062: Right Leg4.003 1
+    2300064: Right Leg4.004
+    2300066: Right Leg4.005
+    2300068: Right Leg4.006
+    2300070: Tail 1
+    2300072: Tail.001 1
+    2300074: Tail.008
+    2300076: Tail.009
+    2300078: Tail.010
+    2300080: Tail.011
+    2300082: Vertebra 1
+    2300084: Vertebra.002 1
+    2300086: Vertebra.003 1
+    2300088: Vertebra.004 1
+    2300090: Vertebra.005 1
+    2300092: Vertebra.006 1
+    3300000: Head 1
+    3300002: Left Claw Arm.007
+    3300004: Left Leg1.001 1
+    3300006: Left Leg1.002 1
+    3300008: Left Leg1.005
+    3300010: Left Leg1.006
+    3300012: Left Leg2.003 1
+    3300014: Left Leg2.004
+    3300016: Left Leg2.005
+    3300018: Left Leg2.006
+    3300020: Left Leg3.001 1
+    3300022: Left Leg3.002 1
+    3300024: Left Leg3.005
+    3300026: Left Leg3.006
+    3300028: Left Leg4.002 1
+    3300030: Left Leg4.003 1
+    3300032: Left Leg4.004
+    3300034: Left Leg4.005
+    3300036: Right Claw Arm 1
+    3300038: Right Leg1 1
+    3300040: Right Leg1.002 1
+    3300042: Right Leg1.003 1
+    3300044: Right Leg1.006
+    3300046: Right Leg2 1
+    3300048: Right Leg2.004
+    3300050: Right Leg2.005
+    3300052: Right Leg2.006
+    3300054: Right Leg3 1
+    3300056: Right Leg3.002 1
+    3300058: Right Leg3.003
+    3300060: Right Leg3.006
+    3300062: Right Leg4.003 1
+    3300064: Right Leg4.004
+    3300066: Right Leg4.005
+    3300068: Right Leg4.006
+    3300070: Tail 1
+    3300072: Tail.001 1
+    3300074: Tail.008
+    3300076: Tail.009
+    3300078: Tail.010
+    3300080: Tail.011
+    3300082: Vertebra 1
+    3300084: Vertebra.002 1
+    3300086: Vertebra.003 1
+    3300088: Vertebra.004 1
+    3300090: Vertebra.005 1
+    3300092: Vertebra.006 1
+    4300000: Vertebra
+    4300002: Head
+    4300004: Vertebra.002
+    4300006: Vertebra.003
+    4300008: Vertebra.004
+    4300010: Vertebra.005
+    4300012: Vertebra.006
+    4300014: Tail.001
+    4300016: Tail.011
+    4300018: Tail
+    4300020: Tail.010
+    4300022: Tail.009
+    4300024: Tail.008
+    4300026: Right Claw Arm
+    4300028: Left Claw Arm.007
+    4300030: Left Leg4.005
+    4300032: Left Leg4.004
+    4300034: Left Leg4.002
+    4300036: Left Leg4.003
+    4300038: Right Leg4.006
+    4300040: Right Leg4.005
+    4300042: Right Leg4.003
+    4300044: Right Leg4.004
+    4300046: Left Leg1.006
+    4300048: Left Leg1.005
+    4300050: Left Leg1.002
+    4300052: Left Leg1.001
+    4300054: Right Leg1
+    4300056: Right Leg1.006
+    4300058: Right Leg1.003
+    4300060: Right Leg1.002
+    4300062: Right Leg2
+    4300064: Right Leg2.006
+    4300066: Right Leg2.005
+    4300068: Right Leg2.004
+    4300070: Left Leg2.006
+    4300072: Left Leg2.005
+    4300074: Left Leg2.004
+    4300076: Left Leg2.003
+    4300078: Right Leg3
+    4300080: Right Leg3.006
+    4300082: Right Leg3.003
+    4300084: Right Leg3.002
+    4300086: Left Leg3.006
+    4300088: Left Leg3.005
+    4300090: Left Leg3.002
+    4300092: Left Leg3.001
+    4300094: Right Claw Arm.007
+    4300096: Left Claw Arm.006
+    7400000: Scorpion Hit
+    9500000: //RootNode
+    13700000: Left Claw Arm.006
+    13700002: Right Claw Arm.007
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Scorpion Hit
+      takeName: Scorpion Armature|Hit
+      firstFrame: 0
+      lastFrame: 12
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Left Claw Arm.006
+        weight: 1
+      - path: Right Claw Arm.007
+        weight: 1
+      - path: Scorpion animations
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Head 1
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Left Claw Arm
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Left Claw Arm/Left Claw Arm.001
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Left Claw Arm/Left Claw Arm.001/Left
+          Claw Arm.002
+        weight: 1
+      - path: 'Scorpion animations/Scorpion Armature/Head/Left Claw Arm/Left Claw
+          Arm.001/Left Claw Arm.002/Left Claw '
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Left Claw Arm/Left Claw Arm.001/Left
+          Claw Arm.002/Left Claw /Left Claw _end
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Left Claw Arm/Left Claw Arm.001/Left
+          Claw Arm.002/Left Claw .001
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Left Claw Arm/Left Claw Arm.001/Left
+          Claw Arm.002/Left Claw .001/Left Claw .001_end
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Left Claw Arm/Left Claw Arm.007
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Left Leg1
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Left Leg1/Left Leg1.001
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Left Leg1/Left Leg1.001/Left
+          Leg1.002
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Left Leg1/Left Leg1.001/Left
+          Leg1.002/Left Leg1.002 1
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Left Leg1/Left Leg1.001/Left
+          Leg1.002/Left Leg1.003
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Left Leg1/Left Leg1.001/Left
+          Leg1.002/Left Leg1.003/Left Leg1.001 1
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Left Leg1/Left Leg1.001/Left
+          Leg1.002/Left Leg1.003/Left Leg1.003_end
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Left Leg1/Left Leg1.001/Left
+          Leg1.005
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Left Leg1/Left Leg1.006
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Left Leg2
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Left Leg2/Left Leg2.001
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Left Leg2/Left Leg2.001/Left
+          Leg2.002
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Left Leg2/Left Leg2.001/Left
+          Leg2.002/Left Leg2.003
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Left Leg2/Left Leg2.001/Left
+          Leg2.002/Left Leg2.003/Left Leg2.003 1
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Left Leg2/Left Leg2.001/Left
+          Leg2.002/Left Leg2.003/Left Leg2.003_end
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Left Leg2/Left Leg2.001/Left
+          Leg2.002/Left Leg2.004
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Left Leg2/Left Leg2.001/Left
+          Leg2.005
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Left Leg2/Left Leg2.006
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Left Leg3
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Left Leg3/Left Leg3.001
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Left Leg3/Left Leg3.001/Left
+          Leg3.002
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Left Leg3/Left Leg3.001/Left
+          Leg3.002/Left Leg3.002 1
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Left Leg3/Left Leg3.001/Left
+          Leg3.002/Left Leg3.003
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Left Leg3/Left Leg3.001/Left
+          Leg3.002/Left Leg3.003/Left Leg3.001 1
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Left Leg3/Left Leg3.001/Left
+          Leg3.002/Left Leg3.003/Left Leg3.003_end
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Left Leg3/Left Leg3.001/Left
+          Leg3.005
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Left Leg3/Left Leg3.006
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Left Leg4
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Left Leg4/Left Leg4.001
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Left Leg4/Left Leg4.001/Left
+          Leg4.002
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Left Leg4/Left Leg4.001/Left
+          Leg4.002/Left Leg4.002 1
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Left Leg4/Left Leg4.001/Left
+          Leg4.002/Left Leg4.003
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Left Leg4/Left Leg4.001/Left
+          Leg4.002/Left Leg4.003/Left Leg4.003 1
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Left Leg4/Left Leg4.001/Left
+          Leg4.002/Left Leg4.003/Left Leg4.003_end
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Left Leg4/Left Leg4.001/Left
+          Leg4.004
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Left Leg4/Left Leg4.005
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Right Claw Arm
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Right Claw Arm/Right Claw
+          Arm 1
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Right Claw Arm/Right Claw
+          Arm.001
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Right Claw Arm/Right Claw
+          Arm.001/Right Claw Arm.002
+        weight: 1
+      - path: 'Scorpion animations/Scorpion Armature/Head/Right Claw Arm/Right Claw
+          Arm.001/Right Claw Arm.002/Right Claw '
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Right Claw Arm/Right Claw
+          Arm.001/Right Claw Arm.002/Right Claw /Right Claw _end
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Right Claw Arm/Right Claw
+          Arm.001/Right Claw Arm.002/Right Claw .001
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Right Claw Arm/Right Claw
+          Arm.001/Right Claw Arm.002/Right Claw .001/Right Claw .001_end
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Right Leg1
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Right Leg1/Right Leg1 1
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Right Leg1/Right Leg1.001
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Right Leg1/Right Leg1.001/Right
+          Leg1.002
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Right Leg1/Right Leg1.001/Right
+          Leg1.002/Right Leg1.003
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Right Leg1/Right Leg1.001/Right
+          Leg1.002/Right Leg1.003/Right Leg1.002 1
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Right Leg1/Right Leg1.001/Right
+          Leg1.002/Right Leg1.003/Right Leg1.003_end
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Right Leg1/Right Leg1.001/Right
+          Leg1.002/Right Leg1.003 1
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Right Leg1/Right Leg1.001/Right
+          Leg1.006
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Right Leg2
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Right Leg2/Right Leg2 1
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Right Leg2/Right Leg2.001
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Right Leg2/Right Leg2.001/Right
+          Leg2.002
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Right Leg2/Right Leg2.001/Right
+          Leg2.002/Right Leg2.003
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Right Leg2/Right Leg2.001/Right
+          Leg2.002/Right Leg2.003/Right Leg2.003_end
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Right Leg2/Right Leg2.001/Right
+          Leg2.002/Right Leg2.003/Right Leg2.004
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Right Leg2/Right Leg2.001/Right
+          Leg2.002/Right Leg2.005
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Right Leg2/Right Leg2.001/Right
+          Leg2.006
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Right Leg3
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Right Leg3/Right Leg3 1
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Right Leg3/Right Leg3.001
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Right Leg3/Right Leg3.001/Right
+          Leg3.002
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Right Leg3/Right Leg3.001/Right
+          Leg3.002/Right Leg3.003
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Right Leg3/Right Leg3.001/Right
+          Leg3.002/Right Leg3.003 1
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Right Leg3/Right Leg3.001/Right
+          Leg3.002/Right Leg3.003 1/Right Leg3.002 1
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Right Leg3/Right Leg3.001/Right
+          Leg3.002/Right Leg3.003 1/Right Leg3.003_end
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Right Leg3/Right Leg3.001/Right
+          Leg3.006
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Right Leg4
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Right Leg4/Right Leg4.001
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Right Leg4/Right Leg4.001/Right
+          Leg4.002
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Right Leg4/Right Leg4.001/Right
+          Leg4.002/Right Leg4.003
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Right Leg4/Right Leg4.001/Right
+          Leg4.002/Right Leg4.003/Right Leg4.003_end
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Right Leg4/Right Leg4.001/Right
+          Leg4.002/Right Leg4.003/Right Leg4.004
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Right Leg4/Right Leg4.001/Right
+          Leg4.002/Right Leg4.003 1
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Right Leg4/Right Leg4.001/Right
+          Leg4.005
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Right Leg4/Right Leg4.006
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Vertebra
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Vertebra/Vertebra.002
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Vertebra/Vertebra.002/Vertebra.002
+          1
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Vertebra/Vertebra.002/Vertebra.003
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Vertebra/Vertebra.002/Vertebra.003/Vertebra.003
+          1
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Vertebra/Vertebra.002/Vertebra.003/Vertebra.004
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Vertebra/Vertebra.002/Vertebra.003/Vertebra.004/Vertebra.004
+          1
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Vertebra/Vertebra.002/Vertebra.003/Vertebra.004/Vertebra.005
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Vertebra/Vertebra.002/Vertebra.003/Vertebra.004/Vertebra.005/Vertebra.005
+          1
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Vertebra/Vertebra.002/Vertebra.003/Vertebra.004/Vertebra.005/Vertebra.006
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Vertebra/Vertebra.002/Vertebra.003/Vertebra.004/Vertebra.005/Vertebra.006/Tail
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Vertebra/Vertebra.002/Vertebra.003/Vertebra.004/Vertebra.005/Vertebra.006/Tail/Tail.001
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Vertebra/Vertebra.002/Vertebra.003/Vertebra.004/Vertebra.005/Vertebra.006/Tail/Tail.001/Tail.002
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Vertebra/Vertebra.002/Vertebra.003/Vertebra.004/Vertebra.005/Vertebra.006/Tail/Tail.001/Tail.002/Tail
+          1
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Vertebra/Vertebra.002/Vertebra.003/Vertebra.004/Vertebra.005/Vertebra.006/Tail/Tail.001/Tail.002/Tail.003
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Vertebra/Vertebra.002/Vertebra.003/Vertebra.004/Vertebra.005/Vertebra.006/Tail/Tail.001/Tail.002/Tail.003/Tail.004
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Vertebra/Vertebra.002/Vertebra.003/Vertebra.004/Vertebra.005/Vertebra.006/Tail/Tail.001/Tail.002/Tail.003/Tail.004/Sting
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Vertebra/Vertebra.002/Vertebra.003/Vertebra.004/Vertebra.005/Vertebra.006/Tail/Tail.001/Tail.002/Tail.003/Tail.004/Sting/Sting_end
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Vertebra/Vertebra.002/Vertebra.003/Vertebra.004/Vertebra.005/Vertebra.006/Tail/Tail.001/Tail.002/Tail.003/Tail.004/Sting/Tail.008
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Vertebra/Vertebra.002/Vertebra.003/Vertebra.004/Vertebra.005/Vertebra.006/Tail/Tail.001/Tail.002/Tail.003/Tail.004/Tail.009
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Vertebra/Vertebra.002/Vertebra.003/Vertebra.004/Vertebra.005/Vertebra.006/Tail/Tail.001/Tail.002/Tail.003/Tail.010
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Vertebra/Vertebra.002/Vertebra.003/Vertebra.004/Vertebra.005/Vertebra.006/Tail/Tail.001/Tail.011
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Vertebra/Vertebra.002/Vertebra.003/Vertebra.004/Vertebra.005/Vertebra.006/Tail/Tail.001
+          1
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Vertebra/Vertebra.002/Vertebra.003/Vertebra.004/Vertebra.005/Vertebra.006/Vertebra.006
+          1
+        weight: 1
+      - path: Scorpion animations/Scorpion Armature/Head/Vertebra 1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
