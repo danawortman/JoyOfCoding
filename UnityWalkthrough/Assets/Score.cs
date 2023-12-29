@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Score : MonoBehaviour
@@ -22,5 +23,11 @@ public class Score : MonoBehaviour
     void Update()
     {
         scoreText.text = "Score: " + playerScore;
+        // If we've won the game, congratulate the player
+        if (playerScore == 5)
+        {
+            Debug.Log("Player wins!");
+            SceneManager.LoadScene("WinScene");
+        }
     }
 }

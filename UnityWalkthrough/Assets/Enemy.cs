@@ -58,7 +58,7 @@ public class Enemy : MonoBehaviour
         Debug.Log("Collision");
         if (collision.gameObject.tag == "Bullet")
         {
-            //Destroy(gameObject);
+            Debug.Log("Collided with a Bullet");
             FindObjectOfType<Score>().playerScore++;
             Destroy(collision.gameObject);
         }
