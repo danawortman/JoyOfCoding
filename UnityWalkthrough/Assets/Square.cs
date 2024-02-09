@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Square : MonoBehaviour
 {
-    [SerializeField] public bool isWall;
+    [SerializeField] public bool isWall = true;
 
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("Start of Square");
         isWall = true;
     }
 

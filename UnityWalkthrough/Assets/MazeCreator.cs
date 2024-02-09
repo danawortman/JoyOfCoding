@@ -9,7 +9,9 @@ public class MazeCreator : MonoBehaviour
     [SerializeField] public Material whiteMat;
     [SerializeField] public Material blackMat;
 
-    GameObject[,] maze = new GameObject[10,10];
+    GameObject[,] maze = new GameObject[10, 10];
+
+    bool isInitialized = false;
 
     // Start is called before the first frame update
     void Start()
@@ -18,67 +20,161 @@ public class MazeCreator : MonoBehaviour
         for (int i = 0; i < maze.GetLength(0); i++)
         {
             // for each column in the row
-            for(int j = 0; j < maze.GetLength(1); j++)
+            for (int j = 0; j < maze.GetLength(1); j++)
             {
-                maze[i,j] = Instantiate(quad);
-                maze[i,j].transform.position = new Vector3(i, 0, j);
-                maze[i,j].GetComponent<MeshRenderer>().material = whiteMat;
+                maze[i, j] = Instantiate(quad);
+                maze[i, j].transform.position = new Vector3(i, 0, j);
+                maze[i, j].GetComponent<MeshRenderer>().material = whiteMat;
             }
-        }
-
-        int startRow = UnityEngine.Random.Range(0, maze.GetLength(0));
-        int startCol = UnityEngine.Random.Range(0, maze.GetLength(1));
-
-        maze[startRow,startCol].GetComponent<MeshRenderer>().material = blackMat;
-        maze[startRow,startCol].GetComponent<Square>().isWall = false;
-
-        if (CheckNeighborsForWalls(startRow - 1, startCol, Direction.North) == 0)
-        {
-            maze[startRow -1,startCol].GetComponent<MeshRenderer>().material = blackMat;
-            maze[startRow -1,startCol].GetComponent<Square>().isWall = false;
         }
     }
 
     int CheckNeighborsForWalls(int row, int col, Direction dir)
     {
-        int countNbrs = 0;
+        int countNotWalls = 0;
 
-        switch(dir)
+        int rowDir = row;
+        int colDir = col;
+
+        switch (dir)
         {
             case Direction.North:
+                rowDir = row - 1;
+                if (rowDir < 0)
+                    return 0;
+
                 // check top row and middle row
-                for (int j = col - 1; j >= col + 1; j++)
+                for (int j = colDir - 1; j <= colDir + 1; j++)
                 {
-                    if ((j >= 0) && (row - 1) >= 0 
-                        && maze[row - 1,j].GetComponent<Square>().isWall)
+                    Debug.Log(j);
+                    if ((j >= 0) && (rowDir - 1) >= 0
+                        && !maze[rowDir - 1, j].GetComponent<Square>().isWall)
                     {
-                        countNbrs++;
+                        countNotWalls++;
                     }
-                    if ((j >= 0) && maze[row,j].GetComponent<Square>().isWall)
+
+                    if ((j >= 0) && !maze[rowDir, j].GetComponent<Square>().isWall)
                     {
-                        countNbrs++;
+                        countNotWalls++;
+                    }
+
+                    if ((j >= 0) && (rowDir + 1) >= 0
+                        && !maze[rowDir + 1, j].GetComponent<Square>().isWall)
+                    {
+                        countNotWalls++;
                     }
                 }
+                Debug.Log(countNotWalls);
                 break;
             case Direction.East:
                 // check left column and middle col
-                break;
+                colDir = col + 1;
+                // check top row and middle row
+                for (int j = colDir - 1; j <= colDir + 1; j++)
+                {
+                    Debug.Log(j);
+                    if ((j >= 0) && (rowDir - 1) >= 0
+                        && !maze[rowDir - 1, j].GetComponent<Square>().isWall)
+                    {
+                        countNotWalls++;
+                    }
 
+                    if ((j >= 0) && !maze[rowDir, j].GetComponent<Square>().isWall)
+                    {
+                        countNotWalls++;
+                    }
+
+                    if ((j >= 0) && (rowDir + 1) >= 0
+                        && !maze[rowDir + 1, j].GetComponent<Square>().isWall)
+                    {
+                        countNotWalls++;
+                    }
+                }
+                Debug.Log(countNotWalls);
+                break;
             case Direction.South:
                 // check bottom row and middle row
-                break;
+                rowDir = row + 1;
+                // check top row and middle row
+                for (int j = colDir - 1; j <= colDir + 1; j++)
+                {
+                    Debug.Log(j);
+                    if ((j >= 0) && (rowDir - 1) >= 0
+                        && !maze[rowDir - 1, j].GetComponent<Square>().isWall)
+                    {
+                        countNotWalls++;
+                    }
 
+                    if ((j >= 0) && !maze[rowDir, j].GetComponent<Square>().isWall)
+                    {
+                        countNotWalls++;
+                    }
+
+                    if ((j >= 0) && (rowDir + 1) >= 0
+                        && !maze[rowDir + 1, j].GetComponent<Square>().isWall)
+                    {
+                        countNotWalls++;
+                    }
+                }
+                Debug.Log(countNotWalls);
+                break;
             case Direction.West:
                 // check right col and middle col
+                colDir = col - 1;
+                // check top row and middle row
+                for (int j = colDir - 1; j <= colDir + 1; j++)
+                {
+                    Debug.Log(j);
+                    if ((j >= 0) && (rowDir - 1) >= 0
+                        && !maze[rowDir - 1, j].GetComponent<Square>().isWall)
+                    {
+                        countNotWalls++;
+                    }
+
+                    if ((j >= 0) && !maze[rowDir, j].GetComponent<Square>().isWall)
+                    {
+                        countNotWalls++;
+                    }
+
+                    if ((j >= 0) && (rowDir + 1) >= 0
+                        && !maze[rowDir + 1, j].GetComponent<Square>().isWall)
+                    {
+                        countNotWalls++;
+                    }
+                }
+                Debug.Log(countNotWalls);
                 break;
         }
 
-        return countNbrs;
+        maze[rowDir, colDir].GetComponent<MeshRenderer>().material = blackMat;
+        maze[rowDir, colDir].GetComponent<Square>().isWall = false;
+
+        return countNotWalls;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (!isInitialized)
+        {
+            // Grab a random row and col for our starting cell
+            int startRow = UnityEngine.Random.Range(0, maze.GetLength(0));
+            int startCol = UnityEngine.Random.Range(0, maze.GetLength(1));
+
+            maze[startRow, startCol].GetComponent<MeshRenderer>().material = blackMat;
+            maze[startRow, startCol].GetComponent<Square>().isWall = false;
+
+            // Randomly pick a direction
+            Direction dir = (Direction)UnityEngine.Random.Range(0, 3);
+            Debug.Log(dir);
+
+            // Head north
+            if (CheckNeighborsForWalls(startRow, startCol, Direction.North) == 1)
+            {
+
+            }
+
+            isInitialized = true;
+        }
     }
 }
