@@ -12,6 +12,7 @@ public class MazeCreator : MonoBehaviour
     GameObject[,] maze = new GameObject[10, 10];
 
     bool isInitialized = false;
+    int size = 10;
 
     // Start is called before the first frame update
     void Start()
@@ -31,22 +32,28 @@ public class MazeCreator : MonoBehaviour
 
     int CheckNeighborsForWalls(int row, int col, Direction dir)
     {
+        Debug.Log("At: " + row + " " + col + " Heading: " + dir);
+
         int countNotWalls = 0;
 
         int rowDir = row;           // Row in direction
         int colDir = col;           // Col in direction
+        int farRowDir = row;        // Far row
+        int farColDir = col;        // Far col
 
         // Set the row and column for the direction we're moving
         switch (dir)
         {
             case Direction.North:
                 rowDir = row - 1;
+                farRowDir = rowDir - 1;
                 break;
             case Direction.East:
                 colDir = col + 1;
                 break;
             case Direction.South:
                 rowDir = row + 1;
+                farRowDir = rowDir + 1;
                 break;
             case Direction.West:
                 colDir = col - 1;
@@ -55,41 +62,54 @@ public class MazeCreator : MonoBehaviour
 
         // If we're heading "off" the maze, then return an error
         // TODO: check that we're not off the bottom or right side of the maze
-        if (rowDir < 0 || colDir < 0)
-            return 0;
+        if (rowDir < 1 || colDir < 1 || rowDir >= maze.GetLength(0) - 1 || colDir >= maze.GetLength(1) - 1)
+            return -1;
 
-        // check top row and middle row
-        for (int j = colDir - 1; j <= colDir + 1; j++)
+          // If we're heading north or south
+        if (dir == Direction.North || dir == Direction.South)
         {
-            Debug.Log(j);
-            // If the column is "in" the maze and the row is in the maze
-            // Explore the top row of neighbors
-            if ((j >= 0) && (rowDir - 1) >= 0
-                && !maze[rowDir - 1, j].GetComponent<Square>().isWall)
-            {
-                countNotWalls++;
-            }
+            countNotWalls = CheckRow(countNotWalls, colDir, rowDir);
+            countNotWalls = CheckRow(countNotWalls, colDir, farRowDir);
+        }
 
-            // Explore the center row of neighbors
-            if ((j >= 0) && !maze[rowDir, j].GetComponent<Square>().isWall)
-            {
-                countNotWalls++;
-            }
+        // If we're heading east or west
+        else // if (dir == Direction.East || dir == Direction.West)
+        {
+            countNotWalls = CheckColumn(countNotWalls, rowDir, farColDir);
+            countNotWalls = CheckColumn(countNotWalls, rowDir, colDir);
+        }
 
-            // Explore the bottom row of neighbors
-            if ((j >= 0) && (rowDir + 1) >= 0
-                && !maze[rowDir + 1, j].GetComponent<Square>().isWall)
+        Debug.Log(countNotWalls);
+        return countNotWalls;
+    }
+
+    // Check the column for walls
+    private int CheckColumn(int countNotWalls, int rowDir, int farColDir)
+    {
+        // Check the "far col"
+        for (int j = rowDir - 1; j <= rowDir + 1; j++)
+        {
+            if ((j >= 0) && (farColDir) >= 0
+                && !maze[farColDir, j].GetComponent<Square>().isWall)
             {
                 countNotWalls++;
             }
         }
 
-        // If we only have one "opening" (floor) in the set of neighbors
-        // Make this cell a floor (break it down!!)
-        if (countNotWalls == 1)
+        return countNotWalls;
+    }
+
+    // Check the row for walls
+    private int CheckRow(int countNotWalls, int colDir, int farRowDir)
+    {
+        // Check the "far row"
+        for (int j = colDir - 1; j <= colDir + 1; j++)
         {
-            maze[rowDir, colDir].GetComponent<MeshRenderer>().material = blackMat;
-            maze[rowDir, colDir].GetComponent<Square>().isWall = false;
+            if ((j >= 0) && (farRowDir) >= 0
+                && !maze[farRowDir, j].GetComponent<Square>().isWall)
+            {
+                countNotWalls++;
+            }
         }
 
         return countNotWalls;
@@ -101,8 +121,8 @@ public class MazeCreator : MonoBehaviour
         if (!isInitialized)
         {
             // Grab a random row and col for our starting cell
-            int startRow = UnityEngine.Random.Range(0, maze.GetLength(0));
-            int startCol = UnityEngine.Random.Range(0, maze.GetLength(1));
+            int startRow = UnityEngine.Random.Range(1, maze.GetLength(0) - 1);
+            int startCol = UnityEngine.Random.Range(1, maze.GetLength(1) - 1);
 
             maze[startRow, startCol].GetComponent<MeshRenderer>().material = blackMat;
             maze[startRow, startCol].GetComponent<Square>().isWall = false;
@@ -112,10 +132,10 @@ public class MazeCreator : MonoBehaviour
             Debug.Log(dir);
 
             // Head north
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 50; i++)
             {
                 dir = (Direction)UnityEngine.Random.Range(0, 3);
-                if (CheckNeighborsForWalls(startRow, startCol, dir) == 1)
+                if (CheckNeighborsForWalls(startRow, startCol, dir) == 0)
                 {
                     // Set the row and column for the direction we're moving
                     switch (dir)
@@ -133,6 +153,8 @@ public class MazeCreator : MonoBehaviour
                             startCol--;
                             break;
                     }
+                    maze[startRow, startCol].GetComponent<MeshRenderer>().material = blackMat;
+                    maze[startRow, startCol].GetComponent<Square>().isWall = false;               
                 }
             }
 
