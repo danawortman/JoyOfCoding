@@ -11,6 +11,8 @@ public class MazeCreator : MonoBehaviour
 
     GameObject[,] maze = new GameObject[10, 10];
 
+    List<Square> squareStack = new List<Square>();
+
     bool isInitialized = false;
     int size = 10;
 
@@ -47,16 +49,20 @@ public class MazeCreator : MonoBehaviour
             case Direction.North:
                 rowDir = row - 1;
                 farRowDir = rowDir - 1;
+                maze[rowDir, colDir].GetComponent<Square>().directions[(int)Direction.South] = true;
                 break;
             case Direction.East:
                 colDir = col + 1;
+                maze[rowDir, colDir].GetComponent<Square>().directions[(int)Direction.West] = true;
                 break;
             case Direction.South:
                 rowDir = row + 1;
                 farRowDir = rowDir + 1;
+                maze[rowDir, colDir].GetComponent<Square>().directions[(int)Direction.North] = true;
                 break;
             case Direction.West:
                 colDir = col - 1;
+                maze[rowDir, colDir].GetComponent<Square>().directions[(int)Direction.East] = true;
                 break;
         }
 
@@ -131,10 +137,19 @@ public class MazeCreator : MonoBehaviour
             Direction dir = (Direction)UnityEngine.Random.Range(0, 3);
             Debug.Log(dir);
 
-            // Head north
-            for (int i = 0; i < 50; i++)
+            // For each of the 3 directions
+            for (int i = 0; i < 3; i++)
             {
-                dir = (Direction)UnityEngine.Random.Range(0, 3);
+                // Repeat until we find a direction we haven't tried
+                do
+                {
+                    dir = (Direction)UnityEngine.Random.Range(0, 3);
+                } while (maze[startRow, startCol].GetComponent<Square>().directions[(int)dir]);
+                
+                // Indicate we've already checked that direction
+                maze[startRow, startCol].GetComponent<Square>().directions[(int)dir] = true;
+
+                // If that direction is clear, head that way
                 if (CheckNeighborsForWalls(startRow, startCol, dir) == 0)
                 {
                     // Set the row and column for the direction we're moving
@@ -156,6 +171,7 @@ public class MazeCreator : MonoBehaviour
                     maze[startRow, startCol].GetComponent<MeshRenderer>().material = blackMat;
                     maze[startRow, startCol].GetComponent<Square>().isWall = false;               
                 }
+                
             }
 
             isInitialized = true;
