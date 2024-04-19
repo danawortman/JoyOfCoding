@@ -5,6 +5,8 @@ using UnityEngine;
 public class Square : MonoBehaviour
 {
     [SerializeField] public bool isWall = true;
+    public int row;
+    public int col;
 
     // Have we checked this direction?
     public bool[] directions = new bool[4];

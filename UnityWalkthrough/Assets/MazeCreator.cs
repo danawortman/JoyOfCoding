@@ -9,13 +9,14 @@ public class MazeCreator : MonoBehaviour
     [SerializeField] public Material whiteMat;
     [SerializeField] public Material blackMat;
 
-    GameObject[,] maze = new GameObject[10, 10];
+    const int size = 50;
+
+    GameObject[,] maze = new GameObject[size, size];
 
     // Stack of squares we've already visited!
     List<Square> squareStack = new List<Square>();
 
     bool isInitialized = false;
-    int size = 10;
 
     // Start is called before the first frame update
     void Start()
@@ -29,65 +30,30 @@ public class MazeCreator : MonoBehaviour
                 maze[i, j] = Instantiate(quad);
                 maze[i, j].transform.position = new Vector3(i, 0, j);
                 maze[i, j].GetComponent<MeshRenderer>().material = whiteMat;
+                maze[i, j].GetComponent<Square>().row = i;
+                maze[i, j].GetComponent<Square>().col = j;
             }
         }
     }
 
-    bool CanMoveInDirection(Square square, int row, int col, Direction dir)
+    bool CanBreakWall(Square square)
     {
-        Debug.Log("At: " + row + " " + col + " Heading: " + dir);
+        int wallCount = 0;
 
-        int countNotWalls = 0;
+        // If one or fewer neighbors are a wall, break it down
+        if (square.row + 1 >= maze.GetLength(0) || !maze[square.row + 1, square.col].GetComponent<Square>().isWall)
+            wallCount++;
 
-        int rowDir = row;           // Row in direction
-        int colDir = col;           // Col in direction
-        int farRowDir = row;        // Far row
-        int farColDir = col;        // Far col
+        if (square.row - 1 < 0 || !maze[square.row - 1, square.col].GetComponent<Square>().isWall)
+            wallCount++;
 
-        // Set the row and column for the direction we're moving
-        switch (dir)
-        {
-            case Direction.North:
-                rowDir = row - 1;
-                farRowDir = rowDir - 1;
-                square.GetComponent<Square>().directions[(int)Direction.South] = true;
-                break;
-            case Direction.East:
-                colDir = col + 1;
-                square.GetComponent<Square>().directions[(int)Direction.West] = true;
-                break;
-            case Direction.South:
-                rowDir = row + 1;
-                farRowDir = rowDir + 1;
-                square.GetComponent<Square>().directions[(int)Direction.North] = true;
-                break;
-            case Direction.West:
-                colDir = col - 1;
-                square.GetComponent<Square>().directions[(int)Direction.East] = true;
-                break;
-        }
+        if (square.col + 1 >= maze.GetLength(1) || !maze[square.row, square.col + 1].GetComponent<Square>().isWall)
+            wallCount++;
 
-        // If we're heading "off" the maze, then return an error
-        // TODO: check that we're not off the bottom or right side of the maze
-        if (rowDir < 1 || colDir < 1 || rowDir >= maze.GetLength(0) - 1 || colDir >= maze.GetLength(1) - 1)
-            return false;
+        if (square.col - 1 < 0 || !maze[square.row, square.col - 1].GetComponent<Square>().isWall)
+            wallCount++;
 
-          // If we're heading north or south
-        if (dir == Direction.North || dir == Direction.South)
-        {
-            countNotWalls = CheckRow(countNotWalls, colDir, rowDir);
-            countNotWalls = CheckRow(countNotWalls, colDir, farRowDir);
-        }
-
-        // If we're heading east or west
-        else // if (dir == Direction.East || dir == Direction.West)
-        {
-            countNotWalls = CheckColumn(countNotWalls, rowDir, farColDir);
-            countNotWalls = CheckColumn(countNotWalls, rowDir, colDir);
-        }
-
-        Debug.Log(countNotWalls);
-        return countNotWalls == 0;
+        return wallCount <= 1;
     }
 
     // Check the column for walls
@@ -122,6 +88,32 @@ public class MazeCreator : MonoBehaviour
         return countNotWalls;
     }
 
+    void AddNeighborsToStack(Square square)
+    {
+        List<Square> neighbors = new List<Square>();
+
+        // Add all the neighbors to the stack
+        // If the neighbor is in the maze and a wall, add it
+        if (square.row + 1 < maze.GetLength(0) && maze[square.row + 1, square.col].GetComponent<Square>().isWall)
+            neighbors.Add(maze[square.row + 1, square.col].GetComponent<Square>());
+
+        if (square.row - 1 >= 0 && maze[square.row - 1, square.col].GetComponent<Square>().isWall)
+            neighbors.Add(maze[square.row - 1, square.col].GetComponent<Square>());
+
+        if (square.col + 1 < maze.GetLength(1) && maze[square.row, square.col + 1].GetComponent<Square>().isWall)
+            neighbors.Add(maze[square.row, square.col + 1].GetComponent<Square>());
+
+        if (square.col - 1 >= 0 && maze[square.row, square.col - 1].GetComponent<Square>().isWall)
+            neighbors.Add(maze[square.row, square.col - 1].GetComponent<Square>());
+
+        while (neighbors.Count > 0)
+        {
+            int randomSquareIndex = UnityEngine.Random.Range(0, neighbors.Count);
+            squareStack.Add(neighbors[0]);
+            neighbors.RemoveAt(0);
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -134,73 +126,32 @@ public class MazeCreator : MonoBehaviour
             maze[startRow, startCol].GetComponent<MeshRenderer>().material = blackMat;
             maze[startRow, startCol].GetComponent<Square>().isWall = false;
 
-            // Prime the stack by adding the starting square
-            squareStack.Add(maze[startRow, startCol].GetComponent<Square>());
+            // Prime the stack by adding the starting square's neighbors
+            AddNeighborsToStack(maze[startRow, startCol].GetComponent<Square>());
 
             // While there are still other choices in the maze
             while (squareStack.Count > 0)
             {
-                // Pull off the last square
+                // Pull off the last square (most recently added)
+                int randomSquare = UnityEngine.Random.Range(0, squareStack.Count);
+
+                //Square square = squareStack[randomSquare];
+                //squareStack.RemoveAt(randomSquare);
+
                 Square square = squareStack[squareStack.Count - 1];
                 squareStack.RemoveAt(squareStack.Count - 1);
 
-                // Check if we're in a deadend if we've checked all 4 directions
-                if (square.GetComponent<Square>().directions[(int)Direction.North]
-                    && square.GetComponent<Square>().directions[(int)Direction.South]
-                    && square.GetComponent<Square>().directions[(int)Direction.East]
-                    && square.GetComponent<Square>().directions[(int)Direction.West])
-                {
-                    continue; 
-                }
+                // If this square is not a wall, go to the next one
+                if (!square.isWall)
+                    continue;
 
-                // Add all the neighbors to the stack
-                if (startRow + 1 < maze.GetLength(0))
-                    squareStack.Add(maze[startRow + 1, startCol].GetComponent<Square>());
-                if (startRow - 1 > 0)
-                    squareStack.Add(maze[startRow - 1, startCol].GetComponent<Square>());
-                if (startCol + 1 < maze.GetLength(1))
-                    squareStack.Add(maze[startRow, startCol + 1].GetComponent<Square>());
-                if (startCol - 1 > 0)
-                    squareStack.Add(maze[startRow, startCol - 1].GetComponent<Square>());
+                // If this wall can be broken through, do it
+                if (CanBreakWall(square))
+                {
+                    maze[square.row, square.col].GetComponent<MeshRenderer>().material = blackMat;
+                    maze[square.row, square.col].GetComponent<Square>().isWall = false;
 
-                // Randomly pick a direction until we find an untested direction
-                Direction dir = Direction.North;
-                do
-                {
-                    dir = (Direction)UnityEngine.Random.Range(0, 3);
-                } while (square.GetComponent<Square>().directions[(int)dir]);
-                Debug.Log(dir);
-               
-                // Indicate we've already checked that direction
-                square.GetComponent<Square>().directions[(int)dir] = true;
-
-                // If that direction is clear, head that way
-                if (CanMoveInDirection(square, startRow, startCol, dir))
-                {
-                    // Set the row and column for the direction we're moving
-                    switch (dir)
-                    {
-                        case Direction.North:
-                            startRow--;
-                            break;
-                        case Direction.East:
-                            startCol++;
-                            break;
-                        case Direction.South:
-                            startRow++;
-                            break;
-                        case Direction.West:
-                            startCol--;
-                            break;
-                    }
-                    square.GetComponent<MeshRenderer>().material = blackMat;
-                    square.GetComponent<Square>().isWall = false;
-                        
-                    squareStack.Add(maze[startRow, startCol].GetComponent<Square>());
-                }
-                else
-                {
-                    squareStack.Add(square);
+                    AddNeighborsToStack(square);
                 }
             }
 
