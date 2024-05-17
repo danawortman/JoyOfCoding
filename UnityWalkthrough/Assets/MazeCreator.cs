@@ -9,7 +9,7 @@ public class MazeCreator : MonoBehaviour
     [SerializeField] public Material whiteMat;
     [SerializeField] public Material blackMat;
 
-    const int size = 50;
+    const int size = 10;
 
     GameObject[,] maze = new GameObject[size, size];
 
@@ -29,7 +29,7 @@ public class MazeCreator : MonoBehaviour
             {
                 maze[i, j] = Instantiate(quad);
                 maze[i, j].transform.position = new Vector3(i, 0, j);
-                maze[i, j].GetComponent<MeshRenderer>().material = whiteMat;
+                //maze[i, j].GetComponent<MeshRenderer>().material = whiteMat;
                 maze[i, j].GetComponent<Square>().row = i;
                 maze[i, j].GetComponent<Square>().col = j;
             }
@@ -109,8 +109,8 @@ public class MazeCreator : MonoBehaviour
         while (neighbors.Count > 0)
         {
             int randomSquareIndex = UnityEngine.Random.Range(0, neighbors.Count);
-            squareStack.Add(neighbors[0]);
-            neighbors.RemoveAt(0);
+            squareStack.Add(neighbors[randomSquareIndex]);
+            neighbors.RemoveAt(randomSquareIndex);
         }
     }
 
@@ -123,7 +123,9 @@ public class MazeCreator : MonoBehaviour
             int startRow = UnityEngine.Random.Range(1, maze.GetLength(0) - 1);
             int startCol = UnityEngine.Random.Range(1, maze.GetLength(1) - 1);
 
-            maze[startRow, startCol].GetComponent<MeshRenderer>().material = blackMat;
+            // TODO: make this square invisible
+            //maze[startRow, startCol].GetComponent<MeshRenderer>().material = blackMat;
+            maze[startRow, startCol].GetComponent<MeshRenderer>().enabled = false;
             maze[startRow, startCol].GetComponent<Square>().isWall = false;
 
             // Prime the stack by adding the starting square's neighbors
@@ -132,8 +134,8 @@ public class MazeCreator : MonoBehaviour
             // While there are still other choices in the maze
             while (squareStack.Count > 0)
             {
-                // Pull off the last square (most recently added)
-                int randomSquare = UnityEngine.Random.Range(0, squareStack.Count);
+                //// Pull off the last square (most recently added)
+                //int randomSquare = UnityEngine.Random.Range(0, squareStack.Count);
 
                 //Square square = squareStack[randomSquare];
                 //squareStack.RemoveAt(randomSquare);
@@ -148,7 +150,8 @@ public class MazeCreator : MonoBehaviour
                 // If this wall can be broken through, do it
                 if (CanBreakWall(square))
                 {
-                    maze[square.row, square.col].GetComponent<MeshRenderer>().material = blackMat;
+                    //maze[square.row, square.col].GetComponent<MeshRenderer>().material = blackMat;
+                    maze[square.row, square.col].GetComponent<MeshRenderer>().enabled = false;
                     maze[square.row, square.col].GetComponent<Square>().isWall = false;
 
                     AddNeighborsToStack(square);
